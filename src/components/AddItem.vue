@@ -9,7 +9,7 @@
         <label>Item Category</label>
         {{selected}}
         <select v-model = "selected">
-          <option disabled value = "">PLease select one</option>
+          <option disabled value = "">Please select one</option>
           <option>Dairy</option>
           <option>Meat</option>
           <option>Produce</option>
@@ -18,7 +18,7 @@
           <option>Personal Care</option>
           <option>Others</option>
         </select>
-        <button type = "submit">Submit</button>   
+        <button type = "submit">Add to Cart</button>   
     </form>
   </div>
 </template>
@@ -70,6 +70,6 @@ button{
     text-align: center;
     text-decoration: none;
     display:inline-block;
-    padding:10px 30px;
+    padding:10px 20px;
 }
 </style>
