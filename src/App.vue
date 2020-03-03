@@ -1,34 +1,52 @@
 <template>
-  <div id="app">
-    <h1>{{title}}</h1>
-    <p>{{greeting()}}</p>
-    <custBtn></custBtn>
+  <div id="app">    
+    <!-- v-bind the items list input to the prop!!-->
+    <app-header v-bind:title="msg"></app-header>
+    <router-view></router-view>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
+//Registering components Locally
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
+//import PageContent from './components/PageContent.vue'
 export default {
-  data () {
+  name: 'App',
+  data(){
     return {
-      title: "Your first Vue Component"
-    }
+      itemsListInput: [{name:'Eggs',image:'./assets/eggs.jpg',show:false},
+                    {name:'Bread',image:'/assets/bread.jfif',show:false},
+                    {name:'Jam',image:'/assets/jam.jfif',show:false},
+                    {name:'CornFlakes',image:'/assets/cornflakes.jfif',show:false},
+                    {name:'Milk',image:'/assets/milk.jfif',show:false},
+                    {name:'Juice',image:'/assets/juice.jfif',show:false}],
+          
+      itemsListSecond: [{name:'Oranges',image:'./assets/orange.jpg',show:false},
+                    {name:'Peanut Butter',image:'/assets/peanutbutter.jpeg',show:false},
+                    {name:'Strawberries',image:'/assets/strawberries.jpg',show:false}
+                    ],
+      msg:"Grocery"
+          }
   },
-  methods: {
-    greeting: function() {
-      return "Week 6 of BT3103";
-    }
+  components: {
+    //Registering with a name
+    'app-header':Header,
+    'app-footer':Footer,
+    //Registering without a name
+    //PageContent
   }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #991893a8;
-  margin-top: 60px;
-  font-size: 40px;
+  color: #2c3e50;
+  
 }
 </style>
